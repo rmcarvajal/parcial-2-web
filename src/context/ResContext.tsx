@@ -15,6 +15,6 @@ export const ResContext = createContext<ResContextValue | null>(null);
 
 export function ResContextProvider({ children }: PropsWithChildren) {
     const [reservation, setReservation] = useState<Reserve[]>(data);
-
+    
     return <ResContext.Provider value={{reservation,setReservation}}>{children}</ResContext.Provider>;
 }
