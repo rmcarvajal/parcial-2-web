@@ -6,12 +6,15 @@ import type { Reserve } from "../types/Reserve"
 export const Available = () => {
 
 const {reservation} = useContext(ResContext)
-console.log(reservation)
+
+const availOnly = reservation.filter((res) => res.available === true)
+
     return(
         <>
-        {reservation.map((res: Reserve) => {
+        <h1>Available rooms</h1>
+        {availOnly.map((res: Reserve) => {
             return(
-                <div key = {res.id}>
+                <div>
             	<ResCard id={res.id} name={res.name} type={res.type} capacity={res.capacity} location={res.location} pricePerHour={res.pricePerHour} available={res.available}/>                
                 </div>
             )
